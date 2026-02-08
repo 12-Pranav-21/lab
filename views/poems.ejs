@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Feeling Into Rhymes - Gallery</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+      body { background-color: #B6E2D3; }
+      
+      .column { float: left; width: 50%; }
+      .row { background-color: #B6E2D3; padding-bottom: 20px; }
+      .row:after { content: ""; display: table; clear: both; }
+
+      h1 { font-size: 80px; padding-left: 50px; padding-top: 100px; font-family: cursive; color: #183D3D; }
+      h2 { font-size: 55px; padding-left: 50px; padding-top: 20px; font-family: cursive; color: #344955; min-height: 80px; }
+      h3 { font-size: 40px; padding-left: 50px; padding-top: 50px; font-family: cursive; color: #344955; }
+
+      .im { padding-top: 50px; height: auto; max-width: 100%; width: 500px; }
+      .b { padding-left: 50px; padding-top: 25px; }
+
+      .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        padding: 50px 20px;
+      }
+
+      .card {
+        width: 350px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        background-color: white;
+        transition: transform 0.3s;
+      }
+      .card:hover { transform: translateY(-10px); }
+
+      .card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover; /* This prevents image stretching */
+        border-radius: 10px 10px 0 0;
+      }
+
+      .card-content { padding: 20px; text-align: center; }
+      .card-content h3 { padding: 0; font-size: 1.5em; margin-bottom: 15px; }
+
+      .form {
+        width: 90%;
+        max-width: 800px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .form select, .form button {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 5px;
+      }
+      .form button { background-color: #183D3D; color: #fff; cursor: pointer; min-width: 120px; }
+    </style>
+  </head>
+
+  <body onload="typeWriter()">
+    <div class="row">
+      <div class="column c1">
+        <h1>WELCOME!!!</h1>
+        <h2 id='demo'></h2>
+        <div class="b">
+          <a class="btn btn-light btn-lg" href="/register" role="button">Sign up</a>
+          <a class="btn btn-dark btn-lg" href="/login" role="button">Login</a>
+          <a class="btn btn-primary btn-lg" href="/post" role="button" style="background-color: #183D3D; border: none;">Post a Poem</a>
+        </div>
+      </div>
+      <div class="column c2">
+        <img class='im' src="/images/logo.png" alt="Logo" />
+      </div>
+    </div>
+
+    <form class="form" action="/search" method="post">
+      <h4 style="margin-right: 20px;">Filter by category:</h4>
+      <select name="category" required>
+        <option value="" disabled selected hidden>Select Category</option>
+        <option value="love">Love</option>
+        <option value="life">Life</option>
+        <option value="sad">Sad</option>
+        <option value="motivational">Motivational</option>
+        <option value="nature">Nature</option>
+      </select>
+      <button type="submit">Search</button>
+      <a href="/poems" class="btn btn-outline-secondary" style="margin-left: 10px;">Clear</a>
+    </form>
+
+    <h3>Read latest poems.....</h3>
+
+    <div class="card-container">
+      <% para.forEach(function(poem) { %>
+        <div class="card">
+            <% if (poem.image) { %>
+                <img src="<%= poem.image %>" alt="Poem Image">
+            <% } else { %>
+                <img src="/images/default-poem.png" alt="Default Image">
+            <% } %>
+
+            <div class="card-content">
+                <h3><%= poem.topic %></h3>
+                <p style="color: #666; margin-bottom: 15px;">By: <%= poem.auth %></p>
+                <a class="btn btn-dark btn-block" href="/poems/<%= poem._id %>" role="button">Read More</a>
+            </div>
+        </div>
+      <% }) %>
+    </div>
+
+    <script>
+      var i = 0;
+      var txt = 'Feelings Into Rhymes ✒️';
+      var speed = 70;
+
+      function typeWriter() {
+        if (i < txt.length) {
+          document.getElementById("demo").innerHTML += txt.charAt(i);
+          i++;
+          setTimeout(typeWriter, speed);
+        }
+      }
+    </script>
+  </body>
+</html>

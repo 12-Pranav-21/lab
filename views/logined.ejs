@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+
+    body{
+      background-color: #B6E2D3;
+    }
+    .column {
+    float: left;
+    width: 50%;
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  h1{
+    font-size: 100px;
+    padding-left: 150px;
+    padding-top: 150px;
+    margin-top: 0px;
+
+      font-family: cursive;
+      color: #183D3D;
+
+
+
+
+  }
+  h2{
+    font-size: 75px;
+    padding-left: 150px;
+    padding-top: 50px;
+    font-family: cursive;
+    color: #344955;
+  }
+img{
+  padding-left: 50px;
+  padding-top: 200PX;
+  padding-right: 10PX;
+  height: 600px;
+  width: 600px
+}
+.b{
+  padding-left: 150px;
+  padding-top: 25px;
+}
+    </style>
+  </head>
+  <body onload="typeWriter()">
+    <div class="row">
+  <div class="column c1">
+    <h1>WELCOME!!!</h1>
+     <h2 id='demo'></h2>
+     <div class="b">
+       <a class="btn btn-light btn-lg" href="/post" role="button">Click here to share your poem</a>
+       <a class="btn btn-dark btn-lg" href="/logout" role="button">Logout</a>
+     </div>
+
+
+
+  </div>
+  <div class="column c2">
+
+    <img src="/images/logo.png"/>
+  </div>
+</div>
+
+  </body>
+  <script>
+  var i = 0;
+  var txt = 'Formulate Your Feelings Into Rhymes ✒️'; /* The text */
+  var speed = 50; /* The speed/duration of the effect in milliseconds */
+
+  function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+  }
+  </script>
+</html>

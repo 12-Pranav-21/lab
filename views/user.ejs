@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>feeling into rhymes</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style media="screen">
+  
+    h1{
+      font-family: cursive;
+      color: #344955;
+      font-size:50px
+    }
+    h2{
+      font-family: cursive;
+      color: #344955;
+    }
+  </style>
+
+
+
+</head>
+
+
+
+<body>
+
+<div class="container">
+  <h1><center>
+    User Information
+  </center></h1>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>User Name </th>
+        <th>Email</th>
+        <th>Mobile No</th>
+        <th>Date of birth</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <% info.forEach(function(data) { %>
+      <tr>
+        <td><%= data.username %></td>
+        <td><%= data.email %></td>
+        <td><%= data.mobNo %></td>
+        <td><%= data.birthday %></td>
+        <td>  <a class="btn btn-dark btn-lg" href="/del/<%= data._id %>" role="button">Delete</a>  </td>
+
+      </tr>
+        <%  }) %>
+
+    </tbody>
+  </table>
+<a style="margin-left:500px" class="btn btn-light btn-lg" href="/userB" role="button"><h2>Go Back</h2></a>
+
+</div>
+
+
+</body>
+</html>

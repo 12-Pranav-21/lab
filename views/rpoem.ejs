@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+
+    body{
+background-color:#B6E2D3;
+
+    }
+
+h1{
+padding-top:50px;
+ font-family: cursive;
+    color: #344955;
+    text-decoration: underline;
+    background-color:#B6E2D3;
+
+
+}
+  h3{
+    font-size:50px;
+
+    padding-left: 100px;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    font-family: cursive;
+    color: #344955;
+  }
+h4{
+ font-family: cursive;
+    color: #344955;
+
+}
+
+.b{
+  padding-left: 150px;
+  padding-top: 25px;
+}
+.card-container {
+ background-image: url("/images/logo.png");
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 0px; /* Space between cards */
+    padding-top:50px;
+    padding:100px 0 100px 0;
+    margin-left:0px;
+margin-right:0px;
+
+}
+
+.card {
+    width: calc(45% - 90px); /* Calculate width for each card with margin included */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow to the card */
+    overflow: hidden;
+}
+
+
+
+.card img {
+    width: 100%; /* Make the image inside the card take up the full width */
+    height: 100%; /* Allow the image to adjust its height while maintaining aspect ratio */
+    border-radius: 10px 10px 0 0; /* Round the top corners of the image */
+}
+
+.card-content {
+    padding: 20px;
+    background-color: white ; /* Background color of the card content */
+    align-items: left;
+
+}
+
+.card-content h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+
+}
+
+.card-content p {
+    margin-bottom: 0;
+
+
+    </style>
+  </head>
+  <body >
+<center><h1><%=topic%></h1></center>
+<div class="card-container">
+
+    <div class="card">
+    <img src="<%= image %>" alt="Poem Image">
+</div>
+
+
+</div>
+<div class="card-container cq">
+<div class="card ">
+     <div class="card-content">
+    <h3>Description:</h3>
+    <p><%=body%></p>
+
+<h3>Writer: <%=auth%></h3>
+
+
+    </div>
+
+
+</div>
+</div>
+
+  </body>
+
+</html>

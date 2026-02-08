@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Your Poem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("/images/logo.png");
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #B6E2D3;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1, h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: cursive;
+            color: #344955;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            padding-right: 10px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="file"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #344955;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        textarea { resize: vertical; min-height: 100px; }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #344955;
+            color: #fff;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover { background-color: #26353d; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Share Your Poem</h1>
+        <h3>(Upload your poem as an image)</h3>
+
+        <form action="/post" method="POST" enctype="multipart/form-data">
+            
+            <div class="form-group">
+                <label for="topic">Title of the poem</label>
+                <input type="text" id="topic" name="topic" required>
+            </div>
+
+            <div class="form-group">
+                <label for="image">Upload Image</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+            </div>
+
+            <div class="form-group">
+                <label for="body">Description about your poem</label>
+                <textarea id="body" name="body" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="auth">Writer's Name</label>
+                <input type="text" id="auth" name="auth" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cat">Category</label>
+                <select name="cat" id="cat" required>
+                    <option value="" disabled selected hidden>Select Category</option>
+                    <option value="love">Love</option>
+                    <option value="life">Life</option>
+                    <option value="sad">Sad</option>
+                    <option value="motivational">Motivational</option>
+                    <option value="nature">Nature</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Post Poem</button>
+        </form>
+    </div>
+</body>
+</html>
